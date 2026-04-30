@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ID:
+    <input type="text" name="id" id="id">
+    Name:
+    <input type="text" name="name" id="name">
+    Password:
+    <input type="text" name="password" id="password">
+    <button id="submit">Submit</button>
+
+    <script>
+        const submitButton = document.getElementById("submit");
+        submitButton.addEventListener("click", function() {
+            const id = document.getElementById("id").value;
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+            idregex = /^\d{4}$/;
+
+            nameregex = /^[a-zA-Z\s]+$/;
+
+            passwordregex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+            if (id === "" || name === "" || password === "") {
+                alert("Please fill in all fields.");
+            } else if (!idregex.test(id)) {
+
+                alert("Please enter a valid ID (4 digits).");
+            } else if (!nameregex.test(name)) {
+                alert("Please enter a valid name.");
+
+            } else if (!passwordregex.test(password)) {
+                alert("Please enter a valid password (8 characters, including at least one letter and one digit).");
+
+
+                
+            } else {
+                alert("Form submitted successfully!");
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>
